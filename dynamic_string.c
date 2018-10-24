@@ -11,11 +11,16 @@ int main(void)
 
 	while (input = getchar())
 	{
-		if(input != '\n')
+		if(input != EOF)
 		{
 			*(dynamic_string + offset)=input;
 			offset ++;
 			dynamic_string = (char*)realloc(dynamic_string,(offset+1)*sizeof(char));
+			if(dynamic_string == NULL)
+			{
+				printf("memory allocation failed\n");
+				break;
+			}
 		}
 		else
 		{
