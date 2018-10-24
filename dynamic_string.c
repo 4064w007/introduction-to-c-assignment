@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define STRING_END '\0'
 int main(void)
 {
 	char *dynamic_string = NULL;
@@ -8,11 +9,19 @@ int main(void)
 	char input;
 	int offset=0;
 
-	while (input = getchar(), input != '\n')
+	while (input = getchar())
 	{
-		*(dynamic_string + offset)=input;
-		offset ++;
-		dynamic_string = realloc(dynamic_string,(offset+1)*sizeof(char));
+		if(input != '\n')
+		{
+			*(dynamic_string + offset)=input;
+			offset ++;
+			dynamic_string = (char*)realloc(dynamic_string,(offset+1)*sizeof(char));
+		}
+		else
+		{
+			*(dynamic_string + offset)= STRING_END;
+			break;
+		}
 	}
 
 	printf("%s\n",dynamic_string );
