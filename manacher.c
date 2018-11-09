@@ -20,7 +20,7 @@ int main(void)
 	scanf("%s",str_input);
 	str=extend(str,str_input);
 	printf("%d\n",palind(str));
-	
+
 	free(str);
 	free(str_input);
 
@@ -29,15 +29,13 @@ int main(void)
 
 inline static char* extend(char* str,const char *str_input)
 {
-	 int i,len=strlen(str_input);
-   str[0]='@';
-
-   for(i=1;i<=2*len;i+=2)
+	int i,len=strlen(str_input);
+  str[0]='@';
+  for(i=1;i<=2*len;i+=2)
     {
         str[i]='#';
         str[i+1]=str_input[i/2];
     }
-
     str[2*len+1]='#';
     str[2*len+2]='$';
     str[2*len+3]='\0';
