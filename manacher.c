@@ -33,12 +33,12 @@ inline static char* extend(char* str,const char *str_input)
   str[0]='@';
   for(i=1;i<=2*len;i+=2)
     {
-        str[i]='#';
-        str[i+1]=str_input[i/2];
+      str[i]='#';
+      str[i+1]=str_input[i/2];
     }
-    str[2*len+1]='#';
-    str[2*len+2]='$';
-    str[2*len+3]='\0';
+  str[2*len+1]='#';
+  str[2*len+2]='$';
+  str[2*len+3]='\0';
 
 	return str;
 }
