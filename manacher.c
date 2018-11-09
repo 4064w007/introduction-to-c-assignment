@@ -30,15 +30,15 @@ int main(void)
 inline static char* extend(char* str,const char *str_input)
 {
 	int i,len=strlen(str_input);
-  str[0]='@';
-  for(i=1;i<=2*len;i+=2)
-    {
-      str[i]='#';
-      str[i+1]=str_input[i/2];
-    }
-  str[2*len+1]='#';
-  str[2*len+2]='$';
-  str[2*len+3]='\0';
+ 	 str[0]='@';
+ 	 for(i=1;i<=2*len;i+=2)
+   	 {
+      		str[i]='#';
+     		 str[i+1]=str_input[i/2];
+   	 }
+ 	 str[2*len+1]='#';
+ 	 str[2*len+2]='$';
+ 	 str[2*len+3]='\0';
 
 	return str;
 }
@@ -51,14 +51,14 @@ inline static int palind(const char *str)
 	memset(status, 0, sizeof(status));
 	for (int i = 1; str[i] != '\0'; i++) 
 	{
-    status[i] = right > i ? MIN(status[2*mid-i], right-i) : 1;
-    while (str[i + status[i]] == str[i - status[i]]) status[i]++;
-    if (i + status[i] > right) 
-    {
-        right = i + status[i];
-        mid = i;
-    }
-    result = MAX(result,status[i]);
+   		 status[i] = right > i ? MIN(status[2*mid-i], right-i) : 1;
+		 while (str[i + status[i]] == str[i - status[i]]) status[i]++;
+   			 if (i + status[i] > right) 
+   			 {
+       				 right = i + status[i];
+       				 mid = i;
+   			 }
+   		 result = MAX(result,status[i]);
 	}
 
 	return result-1;
